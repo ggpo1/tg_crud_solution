@@ -4,10 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using tg_crud_solution.Models.DataBase;
 
-namespace tg_crud_solution.Services.ClientService
+namespace tg_crud_solution.Services.FounderService
 {
-    public interface IClientService
+    public interface IFounderService
     {
-        List<Client> GetClients();
+        List<Founder> GetFounders();
     }
 }

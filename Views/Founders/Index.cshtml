@@ -1,6 +1,6 @@
 ﻿@using tg_crud_solution.ViewModels;
 @using tg_crud_solution.Models.DataBase; 
-@model IndexViewModel
+@model FounderViewModel
 
 @{
     ViewData["Title"] = Model.Title;
@@ -38,26 +38,27 @@
 </style>
 
 <script>
-    $(document).ready(() => {
-        alert('123');
-    });
+
+    
+
 </script>
 
 <div class="tg-page-title">
-    <span style="font-weight: bold; font-size: 20pt">@ViewData["Title"]</span>
+    <span style="font-weight: bold; font-size: 20pt">Учредители</span>
 </div>
 <button type="button" class="btn btn-success tg-add-button">добавить</button>
 
 <div class="clients-wrapper">
 
-    @foreach (Client client in Model.Clients)
+    @foreach (Founder founder in Model.Founders)
     {
         <div class="tg-row">
-            <div class="tg-row-cell">@client.ID</div>
-            <div class="tg-row-cell">@client.TaxID</div>
-            <div class="tg-row-cell">@client.Name</div>
-            <div class="tg-row-cell">@client.AddDate</div>
-            <div class="tg-row-cell">@client.UpdateDate</div>
+            <div class="tg-row-cell">@founder.ID</div>
+            <div class="tg-row-cell">@founder.TaxID</div>
+            <div class="tg-row-cell">@founder.FullName</div>
+            <div class="tg-row-cell">@founder.AddDate</div>
+            <div class="tg-row-cell">@founder.UpdateDate</div>
         </div>
     }
+
  </div>

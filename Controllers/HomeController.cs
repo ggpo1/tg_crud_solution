@@ -5,19 +5,28 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using tg_crud_solution.Models;
+using tg_crud_solution.Models.DataBase;
+using tg_crud_solution.Services.ClientService;
+using tg_crud_solution.ViewModels;
 
 namespace tg_crud_solution.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        public IClientService Service;
+
+        public HomeController(IClientService service)
         {
-            return View();
+            this.Service = service;
         }
 
-        public IActionResult Privacy()
+        public IActionResult Index()
         {
-            return View();
+            List<Client> clients = this.Service.GetClients();
+
+
+            IndexViewModel ivm = new IndexViewModel() { Title = "Клиенты", Clients = clients };
+            return View(ivm);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

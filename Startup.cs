@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using tg_crud_solution.Services.ClientService;
+using tg_crud_solution.Services.FounderService;
 
 namespace tg_crud_solution
 {
@@ -31,6 +33,9 @@ namespace tg_crud_solution
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            // services
+            services.AddScoped<IClientService, ClientService>();
+            services.AddScoped<IFounderService, FounderService>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
@@ -48,7 +53,7 @@ namespace tg_crud_solution
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
+ 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();

@@ -20,10 +20,10 @@ namespace tg_crud_solution.Models
             .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
             .AddJsonFile("appsettings.json")
             .Build();
-            Console.WriteLine(configuration.GetConnectionString("test_db"));
+
             if (!builder.IsConfigured)
             {
-                builder.UseSqlServer(configuration.GetConnectionString("test_db"));
+                builder.UseSqlServer(configuration.GetConnectionString("prod_db"));
             }
         }
     }
